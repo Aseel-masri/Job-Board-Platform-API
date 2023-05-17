@@ -1,0 +1,23 @@
+{
+  "name": "job-board-platform-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirajamous/Job-Board-Platform-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirajamous/Job-Board-Platform-API/issues"
+  },
+  "homepage": "https://github.com/mirajamous/Job-Board-Platform-API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
