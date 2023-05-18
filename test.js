@@ -55,6 +55,6 @@ app.post("/employer", async (req, res, next) => {
 app.get("/employer", getEmployer);
 
 // Listen to port
-app.listen(8080, () =>
-  console.log("🚀 Server ready at: http://localhost:8080")
+app.listen(8081, () =>
+  console.log("🚀 Server ready at: http://localhost:8081")
 );
