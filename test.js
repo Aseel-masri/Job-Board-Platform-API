@@ -35,6 +35,33 @@ const getEmployer = async (req, res, next) => {
   }
 };
 
+const deleteEmployer = async (id) => {
+    return await prisma.employer.delete({
+      where: {
+        id: id,
+      },
+    });
+  };
+  const updateEmployer = async (id, { id: _, name }) => {
+    if (!name) {
+      throw new Error("Name is required for update."+name+"+");
+    }
+  
+    return await prisma.employer.update({
+      where: {
+        id: parseInt(id),
+      }, data: {
+        name: name
+      }
+      
+    });
+  };
+  
+  
+  
+  
+
+
 // Routes
 app.post("/employer", async (req, res, next) => {
   try {
@@ -51,6 +78,42 @@ app.post("/employer", async (req, res, next) => {
     });
   }
 });
+app.delete("/employer/:id", async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      await deleteEmployer(+id);
+      res.send({
+        success: true,
+        message: "Employer deleted successfully",
+      });
+    } catch (error) {
+      res.send({
+        success: false,
+        error: error.message,
+      });
+    }
+  });
+  
+
+  app.put("/employer/:id", async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { name } = req.body;
+      const employer = await updateEmployer(id, req.body);
+      res.send({
+        success: true,
+        employer: employer,
+      });
+    } catch (error) {
+      res.send({
+        success: false,
+        error: error.message,
+      });
+    }
+  });
+  
+  
+
 
 app.get("/employer", getEmployer);
 
@@ -58,3 +121,4 @@ app.get("/employer", getEmployer);
 app.listen(8081, () =>
   console.log("🚀 Server ready at: http://localhost:8081")
 );
+
