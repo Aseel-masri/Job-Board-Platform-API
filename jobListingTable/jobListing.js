@@ -38,6 +38,39 @@ const getJobListings = async (req, res, next) => {
   }
 };
 
+// Retrieve job listings by title
+app.get("/:query", async (req, res) => {
+  const { query } = req.params;
+
+  try {
+    const jobListings = await prisma.joblistings.findMany({
+      where: {
+        OR: [
+          {
+            title: {
+              contains: query,
+              
+            },
+          },
+          {
+            location: {
+              contains: query,
+            
+            },
+          },
+        ],
+      },
+    });
+
+    res.json(jobListings);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while retrieving job listings." });
+  }
+});
+
+
+
 const deleteJobListing = async (id) => {
     return await prisma.joblistings.delete({
       where: {
