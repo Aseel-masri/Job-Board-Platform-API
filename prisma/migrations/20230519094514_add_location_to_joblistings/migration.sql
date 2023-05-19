@@ -5,7 +5,7 @@
 
 */
 -- DropTable
-DROP TABLE `joblisting`;
+-- DROP TABLE `joblisting`;
 
 -- CreateTable
 CREATE TABLE `joblistings` (
