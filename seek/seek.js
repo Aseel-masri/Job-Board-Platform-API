@@ -118,9 +118,4 @@ const createSeeker = async (name, email) => {
     
     
   
-    app.get("/seekers", getSeeker);
-  
-    // Listen to port
-    app.listen(8081, () =>
-      console.log("🚀 Server ready at: http://localhost:8081")
-    );
+    export default app
