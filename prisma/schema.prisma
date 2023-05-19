@@ -15,6 +15,18 @@ model employer {
   email String @default("")
 }
 
+
+
+model joblistings {
+  id           Int      @id @default(autoincrement())
+  title        String
+  description  String?
+  requirements String?
+  salary       String?
+  location     String?
+}
+
+
 model seekers {
   id Int @id @default(autoincrement())
   name String
