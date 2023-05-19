@@ -13,10 +13,11 @@ app.use(express.json());
 
 ////////////////////////////////
 // Database functions
-const createSeeker = async (name) => {
+const createSeeker = async (name, email) => {
     return await prisma.seekers.create({
       data: {
         name: name,
+        email: email
       },
     });
   };
@@ -43,21 +44,21 @@ const createSeeker = async (name) => {
         },
       });
     };
-    const updateSeeker = async (id, { id: _, name }) => {
-      if (!name) {
-        throw new Error("Name is required for update."+name+"+");
-      }
+  
     
-      return await prisma.seekers.update({
-        where: {
-          id: parseInt(id),
-        }, data: {
-          name: name
-        }
-        
-      });
+    const updateSeeker = async (id, name, email) => {
+
+
+        return await prisma.seekers.update({
+            where: {
+                id: parseInt(id),
+            }, data: {
+                name: name,
+                email: email
+            }
+    
+        });
     };
-    
     
     
     
@@ -67,7 +68,9 @@ const createSeeker = async (name) => {
   app.post("/seekers", async (req, res, next) => {
     try {
       const { name } = req.body;
-      const seeker = await createSeeker(name);
+      const { email } = req.body;
+
+      const seeker = await createSeeker(name,email);
       res.send({
         success: true,
         seeker: seeker,
@@ -99,8 +102,8 @@ const createSeeker = async (name) => {
     app.put("/seekers/:id", async (req, res, next) => {
       try {
         const { id } = req.params;
-        const { name } = req.body;
-        const seeker = await updateSeeker(id, req.body);
+        const { name,email } = req.body;
+        const seeker = await updateSeeker(id, name, email);
         res.send({
           success: true,
           seeker: seeker,
@@ -115,10 +118,9 @@ const createSeeker = async (name) => {
     
     
   
+    app.get("/seekers", getSeeker);
   
-  app.get("/seekers", getSeeker);
-  
-  // Listen to port
-  app.listen(8081, () =>
-    console.log("🚀 Server ready at: http://localhost:8081")
-  );
+    // Listen to port
+    app.listen(8081, () =>
+      console.log("🚀 Server ready at: http://localhost:8081")
+    );
