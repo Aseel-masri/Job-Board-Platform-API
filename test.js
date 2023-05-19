@@ -1,7 +1,7 @@
 var myname="Job-Board-Platform-API";
 console.log(myname);
 console.log("aseel");
-console.log("aseel linda mira");
+console.log("mira test");
 const { PrismaClient } = require("@prisma/client");
 const express = require('express');
 const { body, param, query } = require('express-validator');
