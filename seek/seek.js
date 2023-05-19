@@ -63,7 +63,9 @@ const createSeeker = async (name, email) => {
   
   
   // Routes
-  app.post("/seekers", async (req, res, next) => {
+  app.get("", getSeeker);
+
+  app.post("", async (req, res, next) => {
     try {
       const { name } = req.body;
       const { email } = req.body;
@@ -80,7 +82,7 @@ const createSeeker = async (name, email) => {
       });
     }
   });
-  app.delete("/seekers/:id", async (req, res, next) => {
+  app.delete("/:id", async (req, res, next) => {
       try {
         const id = req.params.id;
         await deleteSeeker(+id);
@@ -97,7 +99,7 @@ const createSeeker = async (name, email) => {
     });
     
   
-    app.put("/seekers/:id", async (req, res, next) => {
+    app.put("/:id", async (req, res, next) => {
       try {
         const { id } = req.params;
         const { name,email } = req.body;
