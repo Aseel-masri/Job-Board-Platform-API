@@ -1,14 +1,8 @@
-var myname="Job-Board-Platform-API";
-console.log(myname);
-console.log("aseel");
-console.log("mira test");
-const { PrismaClient } = require("@prisma/client");
-const express = require('express');
-const { body, param, query } = require('express-validator');
+import { PrismaClient } from "@prisma/client";
+import express from 'express';
+import { body, param, query } from "express-validator";
 const prisma = new PrismaClient();
 const app = express();
-
-// Middleware
 app.use(express.json());
 
 // Middleware
@@ -74,7 +68,8 @@ const deleteJobListing = async (id) => {
 };
 
 // Routes
-app.post("/joblistings", async (req, res, next) => {
+app.get("", getJobListings);
+app.post("", async (req, res, next) => {
   try {
     const jobListings = req.body;
     const createdJobListings = await createJobListings(jobListings);
@@ -91,7 +86,7 @@ app.post("/joblistings", async (req, res, next) => {
 });
   // app.get("/joblistings", getJobListings);
   
-app.delete("/joblistings/:id", async (req, res, next) => {
+app.delete("/:id", async (req, res, next) => {
     try {
       const id = req.params.id;
       await deleteJobListing(+id);
@@ -107,7 +102,7 @@ app.delete("/joblistings/:id", async (req, res, next) => {
     }
   });
   
-  app.put("/joblistings/:id", async (req, res, next) => {
+  app.put("/:id", async (req, res, next) => {
     try {
       const { id } = req.params;
       const { title, description, requirements, salary, location } = req.body;
@@ -125,12 +120,6 @@ app.delete("/joblistings/:id", async (req, res, next) => {
   });
 
 
- 
-app.get("/joblistings", getJobListings);
-
-// Listen to port
-app.listen(8081, () =>
-  console.log("🚀 Server ready at: http://localhost:8081")
-);
+export default app
 
   
