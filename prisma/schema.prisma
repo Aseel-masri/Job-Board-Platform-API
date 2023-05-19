@@ -23,6 +23,8 @@ model joblistings {
   requirements String?
   salary       String?
   location     String?
+   applications Application[]
+   
 }
 
 
@@ -30,4 +32,18 @@ model seekers {
   id Int @id @default(autoincrement())
   name String
   email String
+   applications Application[]
+  
+}
+
+model Application {
+  id            Int        @id @default(autoincrement())
+  seekerId      Int
+  jobListingId  Int
+  resume        String
+  coverLetter   String
+  submittedAt   DateTime   @default(now())
+
+  seekers       seekers      @relation(fields: [seekerId], references: [id])
+ joblistings    joblistings  @relation(fields: [jobListingId], references: [id])
 }
