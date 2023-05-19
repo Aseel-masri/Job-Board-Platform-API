@@ -13,3 +13,8 @@ model employer {
   id Int @id @default(autoincrement())
   name String
 }
+
+model seekers {
+  id Int @id @default(autoincrement())
+  name String
+}
