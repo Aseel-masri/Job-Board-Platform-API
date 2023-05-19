@@ -1,9 +1,7 @@
 
-
-////////////////////////////////////////
-const { PrismaClient } = require("@prisma/client");
-const express = require('express');
-const { body, param, query } = require('express-validator');
+import { PrismaClient } from "@prisma/client";
+import express from 'express';
+import { body, param, query } from "express-validator";
 const prisma = new PrismaClient();
 const app = express();
 
