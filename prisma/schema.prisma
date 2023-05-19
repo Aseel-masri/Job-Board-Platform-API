@@ -16,7 +16,10 @@ model employer {
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 model joblistings {
   id           Int      @id @default(autoincrement())
   title        String

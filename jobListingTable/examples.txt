@@ -1,0 +1,90 @@
+[
+        {
+            "id": 1,
+            "title": "Data Analyst",
+            "description": "We are looking for a skilled data analyst with strong analytical abilities.",
+            "requirements": "Bachelor's degree in Statistics or related field",
+            "salary": "60000",
+            "location": "New York"
+        },
+        {
+            "id": 2,
+            "title": "Marketing Specialist",
+            "description": "We are seeking a marketing specialist to develop and implement marketing strategies.",
+            "requirements": "Bachelor's degree in Marketing or related field",
+            "salary": "65000",
+            "location": "Los Angeles"
+        },
+        {
+            "id": 3,
+            "title": "Graphic Designer",
+            "description": "We are looking for a creative graphic designer with a strong portfolio.",
+            "requirements": "Proficiency in Adobe Creative Suite",
+            "salary": "55000",
+            "location": "Chicago"
+        },
+        {
+            "id": 4,
+            "title": "Software Engineer",
+            "description": "Join our team of talented software engineers to build innovative solutions.",
+            "requirements": "Strong programming skills in Java or C++",
+            "salary": "80000",
+            "location": "San Francisco"
+        },
+        {
+            "id": 5,
+            "title": "Sales Representative",
+            "description": "We are hiring a motivated sales representative to expand our customer base.",
+            "requirements": "Excellent communication and negotiation skills",
+            "salary": "70000",
+            "location": "Toronto"
+        },
+        {
+            "id": 6,
+            "title": "Web Developer",
+            "description": "Looking for a skilled web developer to create and maintain our company website.",
+            "requirements": "Proficiency in HTML, CSS, and JavaScript",
+            "salary": "60000",
+            "location": "London"
+        },
+        {
+            "id": 7,
+            "title": "Human Resources Manager",
+            "description": "We are seeking an experienced HR manager to oversee all HR operations.",
+            "requirements": "Bachelor's degree in HR or related field",
+            "salary": "90000",
+            "location": "Sydney"
+        },
+        {
+            "id": 8,
+            "title": "Accountant",
+            "description": "Join our finance team as an accountant and manage financial records.",
+            "requirements": "CPA certification and knowledge of accounting software",
+            "salary": "75000",
+            "location": "Berlin"
+        },
+        {
+            "id": 9,
+            "title": "Customer Support Specialist",
+            "description": "Provide excellent customer service and assist customers with their inquiries.",
+            "requirements": "Strong communication and problem-solving skills",
+            "salary": "45000",
+            "location": "Tokyo"
+        },
+        {
+            "id": 10,
+            "title": "Operations Manager",
+            "description": "Oversee daily operations and ensure efficient workflow in our organization.",
+            "requirements": "Proven experience in operations management",
+            "salary": "85000",
+            "location": "Mumbai"
+        },
+        {
+            "id": 11,
+            "title": "Software Engineer job",
+            "description": "Join our team of talented software engineers to build innovative solutions.",
+            "requirements": "Strong programming skills in Java or C++",
+            "salary": "80000",
+            "location": "San Francisco"
+        }
+    ]

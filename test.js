@@ -8,8 +8,11 @@ const app = express();
 console.log("dn");
 app.use("/employer",emp);
 app.use("/joblistings",job);
+<<<<<<< HEAD
 app.use("/seekers",seek);
 
+=======
+>>>>>>> main
 // Listen to port
 app.listen(8081, () =>
   console.log("🚀 Server ready at: http://localhost:8081")
