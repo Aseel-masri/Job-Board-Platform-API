@@ -2,6 +2,7 @@
 import emp from "./employer/services.js";
 import express from 'express';
 const app = express();
+console.log("dn");
 app.use("/employer",emp);
 // Listen to port
 app.listen(8081, () =>
