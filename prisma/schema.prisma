@@ -14,3 +14,9 @@ model employer {
   name String @default("")
   email String @default("")
 }
+
+model seekers {
+  id Int @id @default(autoincrement())
+  name String
+  email String
+}
