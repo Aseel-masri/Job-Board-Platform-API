@@ -15,8 +15,7 @@ model employer {
   email String @default("")
 }
 
-<<<<<<< HEAD
-//Mira tables 
+
 model joblistings {
   id           Int      @id @default(autoincrement())
   title        String
@@ -27,10 +26,8 @@ model joblistings {
 }
 
 
-=======
 model seekers {
   id Int @id @default(autoincrement())
   name String
   email String
 }
->>>>>>> main
