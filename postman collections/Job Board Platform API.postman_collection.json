@@ -1,0 +1,669 @@
+{
+	"info": {
+		"_postman_id": "cef0ab9a-6c25-4cf8-b85a-b774644c1d80",
+		"name": "Job Board Platform API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25908544"
+	},
+	"item": [
+		{
+			"name": "employer",
+			"item": [
+				{
+					"name": "Get Employer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"mira\",\r\n  \"email\": \"mira@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update employer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"aseel masri\",\r\n    \"email\": \"aseel@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer/{{employerid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"{{employerid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer/{{employerid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"{{employerid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employer Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"aseel\",\r\n    \"email\": \"aseell@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer/changepassword/{{employerid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"changepassword",
+								"{{employerid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seeker",
+			"item": [
+				{
+					"name": "Get Seeker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/seekers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seekers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Seeker",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"aseel\",\r\n    \"email\": \"aseell@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/seekers/{{seekerid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seekers",
+								"{{seekerid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Seeker",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/seekers/{{seekerid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seekers",
+								"{{seekerid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seeker Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"mira\",\r\n    \"email\": \"mira@gmail.com\",\r\n    \"password\": \"mira12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/seekers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seekers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/seekers/changepassword/{{seekerid}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seekers",
+								"changepassword",
+								"{{seekerid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Listing",
+			"item": [
+				{
+					"name": "Get Job by location or salary or title",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Data Analyst\",\r\n    \"salary\": \"60000\",\r\n    \"location\": \"New York\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/joblistings/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"joblistings",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"Operations Manager\",\r\n            \"description\": \"Oversee daily operations and ensure efficient workflow in our organization.\",\r\n            \"requirements\": \"Proven experience in operations management\",\r\n            \"salary\": \"85000\",\r\n            \"location\": \"Mumbai\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer/joblistings/{{joblistingID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"joblistings",
+								"{{joblistingID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/employer/joblistings/{{joblistingID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"joblistings",
+								"{{joblistingID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n        {\r\n            \"title\": \"Data Analyst\",\r\n            \"description\": \"We are looking for a skilled data analyst with strong analytical abilities.\",\r\n            \"requirements\": \"Bachelor's degree in Statistics or related field\",\r\n            \"salary\": \"60000\",\r\n            \"location\": \"New York\"\r\n        },\r\n        {\r\n            \"title\": \"Marketing Specialist\",\r\n            \"description\": \"We are seeking a marketing specialist to develop and implement marketing strategies.\",\r\n            \"requirements\": \"Bachelor's degree in Marketing or related field\",\r\n            \"salary\": \"65000\",\r\n            \"location\": \"Los Angeles\"\r\n        },\r\n        {\r\n            \"title\": \"Graphic Designer\",\r\n            \"description\": \"We are looking for a creative graphic designer with a strong portfolio.\",\r\n            \"requirements\": \"Proficiency in Adobe Creative Suite\",\r\n            \"salary\": \"55000\",\r\n            \"location\": \"Chicago\"\r\n        },\r\n        {\r\n            \"title\": \"Software Engineer\",\r\n            \"description\": \"Join our team of talented software engineers to build innovative solutions.\",\r\n            \"requirements\": \"Strong programming skills in Java or C++\",\r\n            \"salary\": \"80000\",\r\n            \"location\": \"San Francisco\"\r\n        },\r\n        {\r\n            \"title\": \"Sales Representative\",\r\n            \"description\": \"We are hiring a motivated sales representative to expand our customer base.\",\r\n            \"requirements\": \"Excellent communication and negotiation skills\",\r\n            \"salary\": \"70000\",\r\n            \"location\": \"Toronto\"\r\n        },\r\n        {\r\n            \"title\": \"Web Developer\",\r\n            \"description\": \"Looking for a skilled web developer to create and maintain our company website.\",\r\n            \"requirements\": \"Proficiency in HTML, CSS, and JavaScript\",\r\n            \"salary\": \"60000\",\r\n            \"location\": \"London\"\r\n        },\r\n        {\r\n            \"title\": \"Human Resources Manager\",\r\n            \"description\": \"We are seeking an experienced HR manager to oversee all HR operations.\",\r\n            \"requirements\": \"Bachelor's degree in HR or related field\",\r\n            \"salary\": \"90000\",\r\n            \"location\": \"Sydney\"\r\n        },\r\n        {\r\n            \"title\": \"Accountant\",\r\n            \"description\": \"Join our finance team as an accountant and manage financial records.\",\r\n            \"requirements\": \"CPA certification and knowledge of accounting software\",\r\n            \"salary\": \"75000\",\r\n            \"location\": \"Berlin\"\r\n        },\r\n        {\r\n            \"title\": \"Customer Support Specialist\",\r\n            \"description\": \"Provide excellent customer service and assist customers with their inquiries.\",\r\n            \"requirements\": \"Strong communication and problem-solving skills\",\r\n            \"salary\": \"45000\",\r\n            \"location\": \"Tokyo\"\r\n        },\r\n        {\r\n            \"title\": \"Operations Manager\",\r\n            \"description\": \"Oversee daily operations and ensure efficient workflow in our organization.\",\r\n            \"requirements\": \"Proven experience in operations management\",\r\n            \"salary\": \"85000\",\r\n            \"location\": \"Mumbai\"\r\n        },\r\n        {\r\n            \"title\": \"Software Engineer job\",\r\n            \"description\": \"Join our team of talented software engineers to build innovative solutions.\",\r\n            \"requirements\": \"Strong programming skills in Java or C++\",\r\n            \"salary\": \"80000\",\r\n            \"location\": \"San Francisco\"\r\n        }\r\n    ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer/joblistings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"joblistings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Listing",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/joblistings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"joblistings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Log in as Seeker",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"aseel2@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/seeker/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seeker",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log in as Employer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"aseel@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/employer/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"employer",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application Submission",
+			"item": [
+				{
+					"name": "Get Job application",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/Application",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"Application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add job application",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "resume",
+									"type": "file",
+									"src": "/C:/Users/aseel/Downloads/cv/cv.pdf"
+								},
+								{
+									"key": "coverLetter",
+									"type": "file",
+									"src": "/C:/Users/aseel/Downloads/Part 02 - Architectural Styles (2).pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/seeker/Application/{{seekerId}}/{{joblistingId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seeker",
+								"Application",
+								"{{seekerId}}",
+								"{{joblistingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete job application",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/seeker/Application/{{application id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seeker",
+								"Application",
+								"{{application id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit application",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "resume ",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "coverLetter",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/seeker/Application/{{application id}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"seeker",
+								"Application",
+								"{{application id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
