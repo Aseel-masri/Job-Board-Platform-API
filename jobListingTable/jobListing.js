@@ -31,7 +31,7 @@ const getJobListings = async (req, res, next) => {
       jobListings: jobListings,
     });
   } catch (error) {
-    res.send({
+    res.status(500).res.send({
       success: false,
       error: error.message,
     });
@@ -39,8 +39,8 @@ const getJobListings = async (req, res, next) => {
 };
 
 // Retrieve job listings by title
-app.get("/:query", async (req, res) => {
-  const { query } = req.params;
+app.get("/joblistings/search", async (req, res) => {
+  //const { query } = req.body;
 
   try {
     const jobListings = await prisma.joblistings.findMany({
@@ -48,16 +48,18 @@ app.get("/:query", async (req, res) => {
         OR: [
           {
             title: {
-              contains: query,
+              contains: req.body.title,
               
             },
           },
           {
             location: {
-              contains: query,
+              contains: req.body.location,
             
             },
-          },
+          },{
+            salary: req.body.salary
+          }
         ],
       },
     });
@@ -101,8 +103,8 @@ const deleteJobListing = async (id) => {
 };
 
 // Routes
-app.get("", getJobListings);
-app.post("", async (req, res, next) => {
+app.get("/joblistings", getJobListings);
+app.post("/employer/joblistings", async (req, res, next) => {
   try {
     const jobListings = req.body;
     const createdJobListings = await createJobListings(jobListings);
@@ -119,7 +121,7 @@ app.post("", async (req, res, next) => {
 });
   // app.get("/joblistings", getJobListings);
   
-app.delete("/:id", async (req, res, next) => {
+app.delete("/employer/joblistings/:id", async (req, res, next) => {
     try {
       const id = req.params.id;
       await deleteJobListing(+id);
@@ -135,7 +137,7 @@ app.delete("/:id", async (req, res, next) => {
     }
   });
   
-  app.put("/:id", async (req, res, next) => {
+  app.put("/employer/joblistings/:id", async (req, res, next) => {
     try {
       const { id } = req.params;
       const { title, description, requirements, salary, location } = req.body;
@@ -145,7 +147,7 @@ app.delete("/:id", async (req, res, next) => {
         jobListing: jobListing,
       });
     } catch (error) {
-      res.send({
+      res.status(500).res.send({
         success: false,
         error: error.message,
       });

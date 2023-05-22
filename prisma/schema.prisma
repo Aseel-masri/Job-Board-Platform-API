@@ -12,7 +12,8 @@ datasource db {
 model employer {
   id Int @id @default(autoincrement())
   name String @default("")
-  email String @default("")
+  email String @default("") @unique
+  password String @default("")
 }
 
 
@@ -31,8 +32,9 @@ model joblistings {
 model seekers {
   id Int @id @default(autoincrement())
   name String
-  email String
-   applications Application[]
+  email String @unique  @default("")
+  applications Application[]
+  password String @default("")
   
 }
 
@@ -40,12 +42,12 @@ model Application {
   id            Int        @id @default(autoincrement())
   seekerId      Int
   jobListingId  Int
-  resume        String
-  coverLetter   String
+  resume        String @default("")
+  coverLetter   String @default("")
   submittedAt   DateTime   @default(now())
 
-  seekers       seekers      @relation(fields: [seekerId], references: [id])
- joblistings    joblistings  @relation(fields: [jobListingId], references: [id])
+  seekers       seekers      @relation(fields: [seekerId], references: [id],onDelete: Cascade)
+ joblistings    joblistings  @relation(fields: [jobListingId], references: [id],onDelete: Cascade)
 }
 model user {
   id       Int     @id @default(autoincrement())
