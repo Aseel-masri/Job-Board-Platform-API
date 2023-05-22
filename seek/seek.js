@@ -2,6 +2,7 @@
 import { PrismaClient } from "@prisma/client";
 import express from 'express';
 import { body, param, query } from "express-validator";
+import bcrypt from 'bcrypt';
 const prisma = new PrismaClient();
 const app = express();
 
@@ -11,11 +12,12 @@ app.use(express.json());
 
 ////////////////////////////////
 // Database functions
-const createSeeker = async (name, email) => {
+const createSeeker = async (name, email, password) => {
     return await prisma.seekers.create({
       data: {
         name: name,
-        email: email
+        email: email,
+        password: password
       },
     });
   };
@@ -58,7 +60,18 @@ const createSeeker = async (name, email) => {
         });
     };
     
-    
+    const updatePassword = async (id, password) => {
+
+
+      return await prisma.seekers.update({
+          where: {
+              id: parseInt(id),
+          }, data: {
+              password: password
+          }
+  
+      });
+  }; 
     
   
   
@@ -67,15 +80,16 @@ const createSeeker = async (name, email) => {
 
   app.post("", async (req, res, next) => {
     try {
-      const { name } = req.body;
-      const { email } = req.body;
-
-      const seeker = await createSeeker(name,email);
+      const { name } = req.body.name;
+      const { email } = req.body.email;
+      const { password } = await bcrypt.hash(req.body.password, 10);
+      const seeker = await createSeeker(req.body.name, req.body.email, await bcrypt.hash(req.body.password, 10));
       res.send({
         success: true,
         seeker: seeker,
       });
-    } catch (error) {
+    } catch (error) { 
+      res.status(404);
       res.send({
         success: false,
         error: error.message,
@@ -91,6 +105,7 @@ const createSeeker = async (name, email) => {
           message: "Seeker deleted successfully",
         });
       } catch (error) {
+        res.status(404);
         res.send({
           success: false,
           error: error.message,
@@ -104,11 +119,20 @@ const createSeeker = async (name, email) => {
         const { id } = req.params;
         const { name,email } = req.body;
         const seeker = await updateSeeker(id, name, email);
+        if(seeker){
         res.send({
           success: true,
           seeker: seeker,
-        });
+        });}
+        else{
+          res.status(404);
+          res.send({
+              success: fasle,
+              employer: "No seeker have this id",
+          });
+      }
       } catch (error) {
+        res.status(404);
         res.send({
           success: false,
           error: error.message,
@@ -116,6 +140,31 @@ const createSeeker = async (name, email) => {
       }
     });
     
-    
+    app.put("/changepassword/:id", async (req, res, next) => {
+      try {
+          const id = req.params.id;
+          const { password } = String(await bcrypt.hash(req.body.password, 10));
+          const user = await updatePassword(id, await bcrypt.hash(req.body.password, 10));
+          if (user) {
+              res.send({
+                  success: true,
+                  NewPassword: await bcrypt.hash(req.body.password, 10),
+              });
+          }
+          else {
+              res.status(404);
+              res.send({
+                  success: false,
+                  msg: "No one have this id",
+              });
+          }
+      } catch (error) {
+          res.status(404);
+          res.send({
+              success: false,
+              error: error.message,
+          });
+      }
+  });
   
     export default app
