@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "cef0ab9a-6c25-4cf8-b85a-b774644c1d80",
+		"_postman_id": "60308f96-365e-4424-8b29-5b8f5b2362ce",
 		"name": "Job Board Platform API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25908544"
+		"_exporter_id": "25923700",
+		"_collection_link": "https://crimson-water-774424.postman.co/workspace/Team-Workspace~87268e4f-4a6b-4bd8-8505-5ee5d5c2f6ba/collection/25923700-60308f96-365e-4424-8b29-5b8f5b2362ce?action=share&creator=25923700&source=collection_link"
 	},
 	"item": [
 		{
@@ -474,6 +475,100 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "ExternalAPI",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/jobSearch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"jobSearch"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "example for resopnse return",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/jobSearch",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"jobSearch"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "884"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"374-NVZCsD5JspShKsM1oVbT5fIPXio\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 13:45:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sucsses\": true,\n    \"response\": {\n        \"meta\": {\n            \"page\": 1,\n            \"total\": 3,\n            \"has_more\": false\n        },\n        \"items\": [\n            {\n                \"_id\": \"6054f4d294e51d001791bda0\",\n                \"company_logo\": \"https://remoteOK.io/assets/jobs/dc2eb8ad5fba524dc60f41edb888e1381615421309.png\",\n                \"id\": \"remoteok-102861\",\n                \"title\": \"Staff Data Scientist\",\n                \"location\": \"remote\",\n                \"company_name\": \"Shopify\",\n                \"date\": \"2021-03-11T00:08:29.000Z\"\n            },\n            {\n                \"_id\": \"6054f4d294e51d001791bda2\",\n                \"company_logo\": \"https://remoteOK.io/assets/jobs/e93167f5a9894ae783af8a177c1d2f9b1615407641.png\",\n                \"id\": \"remoteok-102857\",\n                \"title\": \"Senior Software Engineer\",\n                \"location\": \"remote\",\n                \"company_name\": \"Shopify\",\n                \"date\": \"2021-03-10T20:20:41.000Z\"\n            },\n            {\n                \"_id\": \"6054f4d394e51d001791be29\",\n                \"company_logo\": \"https://remoteOK.io/assets/jobs/d96d158a254d762401205874b55698d61614363186.png\",\n                \"id\": \"remoteok-102469\",\n                \"title\": \"Staff Software Developer\",\n                \"location\": \"remote\",\n                \"company_name\": \"Shopify\",\n                \"date\": \"2021-02-26T18:13:06.000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				}
 			]
 		},
