@@ -104,6 +104,7 @@ const deleteJobListing = async (id) => {
 
 // Routes
 app.get("/joblistings", getJobListings);
+
 app.post("/employer/joblistings", async (req, res, next) => {
   try {
     const jobListings = req.body;
